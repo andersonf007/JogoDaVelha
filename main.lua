@@ -89,205 +89,275 @@ myRectangle9:setStrokeColor( 1, 0, 0 )
 cont = 1
 teste = 104
 outro = 157
-function toqueNaTela(toque)	
---	print("1")
-if toque.phase == "began" then
---	print("2")
-	if cont % 2 ~= 0 then
---		print("3")
-		circo1 = display.newCircle(106/2,160/2,40)
-		circo1:setFillColor(0)		
-		circo1:setStrokeColor(0,1,0)
-		circo1.strokeWidth = 8
-		cont = cont + 1
-	
-	elseif cont % 2 == 0 then
-		x1 = display.newLine(0,0,teste,157)
-		x1.strokeWidth = 3
-		y1 = display.newLine(0,157,104,0)
-		y1.strokeWidth = 3
-		cont = cont + 1
-	end
+--[[
+function jogoDaVelha:validacaoDaJogada(linha,coluna)
+	if linha <= 3 and coluna <= 3 then
+        if self.jogo[linha][coluna] ~= " o " and self.jogo[linha][coluna] ~= " x " then
+            return true        
+        end
+         if self.jogo[linha][coluna] == " o " or self.jogo[linha][coluna] == " x " then
+            print("o campo esta preenchido")
+            return false        
+        end
+    else
+        print("Jogada invalida!")
+        return false
+    end
+    return false
 end
+]]--
+function toqueNaTela(toque)	
+
+	if toque.phase == "began" then
+
+		if myRectangle == true then
+
+			if cont % 2 ~= 0 then
+				myRectangle = false
+				circo1 = display.newCircle(106/2,160/2,40)
+				circo1:setFillColor(0)		
+				circo1:setStrokeColor(0,1,0)
+				circo1.strokeWidth = 8
+				cont = cont + 1
+			
+			elseif cont % 2 == 0 then
+				myRectangle = false
+				x1 = display.newLine(0,0,teste,157)
+				x1.strokeWidth = 3
+				y1 = display.newLine(0,157,104,0)
+				y1.strokeWidth = 3
+				cont = cont + 1
+			end
+		end
+	end
 end
 
 function toqueNaTela2(toque)	
 
-if toque.phase == "began" then	
-	if cont % 2 ~= 0 then
-		circo2 = display.newCircle(display.contentWidth/2,160/2,40)
-		circo2:setFillColor(0)		
-		circo2:setStrokeColor(0,1,0)
-		circo2.strokeWidth = 8
-		cont = cont + 1
-	
-	elseif cont % 2 == 0 then
-		x2 = display.newLine(teste + 4,0,teste*2,outro)
-		x2.strokeWidth = 3
-		y2 = display.newLine(teste + 5,outro,teste*2,0)
-		y2.strokeWidth = 3
-		cont = cont + 1
-	end
-end
+	if toque.phase == "began" then
+		
+		if myRectangle2 ==  true then	
+		
+			if cont % 2 ~= 0 then
+				myRectangle2 = false
+				circo2 = display.newCircle(display.contentWidth/2,160/2,40)
+				circo2:setFillColor(0)		
+				circo2:setStrokeColor(0,1,0)
+				circo2.strokeWidth = 8
+				cont = cont + 1
+			
+			elseif cont % 2 == 0 then
+				myRectangle2 = false
+				x2 = display.newLine(teste + 4,0,teste*2,outro)
+				x2.strokeWidth = 3
+				y2 = display.newLine(teste + 5,outro,teste*2,0)
+				y2.strokeWidth = 3
+				cont = cont + 1
+			end
+		end
+	end	
 end
 
 function toqueNaTela3(toque)	
 
-if toque.phase == "began" then
-	if cont % 2 ~= 0 then
-		circo3 = display.newCircle(265,160/2,40)
-		circo3:setFillColor(0)		
-		circo3:setStrokeColor(0,1,0)
-		circo3.strokeWidth = 8
-		cont = cont + 1
-	
-	elseif cont % 2 == 0 then
-		x3 = display.newLine(teste*2 + 7,0,teste*3,outro)
-		x3.strokeWidth = 3
-		y3 = display.newLine(teste*2 + 5,outro,teste*3,0)
-		y3.strokeWidth = 3
-		cont = cont + 1
+	if toque.phase == "began" then
+		if myRectangle3 == true then
+			if cont % 2 ~= 0 then
+				myRectangle3 = false
+				circo3 = display.newCircle(265,160/2,40)
+				circo3:setFillColor(0)		
+				circo3:setStrokeColor(0,1,0)
+				circo3.strokeWidth = 8
+				cont = cont + 1
+			
+			elseif cont % 2 == 0 then
+				myRectangle3 = false
+				x3 = display.newLine(teste*2 + 7,0,teste*3,outro)
+				x3.strokeWidth = 3
+				y3 = display.newLine(teste*2 + 5,outro,teste*3,0)
+				y3.strokeWidth = 3
+				cont = cont + 1
+			end
+		end
 	end
-end
 end
 
 function toqueNaTela4(toque)	
 
-if toque.phase == "began" then
-	if cont % 2 ~= 0 then
-		circo4 = display.newCircle(106/2,display.contentHeight/2,40)
-		circo4:setFillColor(0)		
-		circo4:setStrokeColor(0,1,0)
-		circo4.strokeWidth = 8
-		cont = cont + 1
+	if toque.phase == "began" then
 	
-	elseif cont % 2 == 0 then
-		x4 = display.newLine(0,outro + 4,teste,outro*2)
-		x4.strokeWidth = 3
-		y4 = display.newLine(0,outro*2,teste,outro+4)
-		y4.strokeWidth = 3
-		cont = cont + 1
+		if myRectangle4 == true then
+	
+			if cont % 2 ~= 0 then
+				myRectangle4 = false
+				circo4 = display.newCircle(106/2,display.contentHeight/2,40)
+				circo4:setFillColor(0)		
+				circo4:setStrokeColor(0,1,0)
+				circo4.strokeWidth = 8
+				cont = cont + 1
+			
+			elseif cont % 2 == 0 then
+				myRectangle4 = false
+				x4 = display.newLine(0,outro + 4,teste,outro*2)
+				x4.strokeWidth = 3
+				y4 = display.newLine(0,outro*2,teste,outro+4)
+				y4.strokeWidth = 3
+				cont = cont + 1
+			end
+		end
 	end
-end
 end
 
 function toqueNaTela5(toque)	
 
-if toque.phase == "began" then
-	if cont % 2 ~= 0 then
-		circo5 = display.newCircle(display.contentWidth/2,display.contentHeight/2,40)
-		circo5:setFillColor(0)		
-		circo5:setStrokeColor(0,1,0)
-		circo5.strokeWidth = 8
-		cont = cont + 1
-	
-	elseif cont % 2 == 0 then
-		x5 = display.newLine(teste + 4,outro,teste*2,outro*2)
-		x5.strokeWidth = 3
-		y5 = display.newLine(teste + 5,outro*2,teste*2,outro+4)
-		y5.strokeWidth = 3
-		cont = cont + 1
-	end
-end
+	if toque.phase == "began" then
+		
+		if myRectangle5 == true then
+		
+			if cont % 2 ~= 0 then
+				myRectangle5 = false
+				circo5 = display.newCircle(display.contentWidth/2,display.contentHeight/2,40)
+				circo5:setFillColor(0)		
+				circo5:setStrokeColor(0,1,0)
+				circo5.strokeWidth = 8
+				cont = cont + 1
+			
+			elseif cont % 2 == 0 then
+				myRectangle5 = false
+				x5 = display.newLine(teste + 4,outro,teste*2,outro*2)
+				x5.strokeWidth = 3
+				y5 = display.newLine(teste + 5,outro*2,teste*2,outro+4)
+				y5.strokeWidth = 3
+				cont = cont + 1
+			end
+		end
+	end	
 end
 
 function toqueNaTela6(toque)	
 
-if toque.phase == "began" then
-	if cont % 2 ~= 0 then
-		circo6 = display.newCircle(270,display.contentHeight/2,40)
-		circo6:setFillColor(0)		
-		circo6:setStrokeColor(0,1,0)
-		circo6.strokeWidth = 8
-		cont = cont + 1
-	
-	elseif cont % 2 == 0 then
-		x6 = display.newLine(teste*2 + 7,outro,teste*3,outro*2)
-		x6.strokeWidth = 3
-		y6 = display.newLine(teste*2 + 5,outro*2,teste*3,outro)
-		y6.strokeWidth = 3
-		cont = cont + 1
+	if toque.phase == "began" then
+
+		if myRectangle6 == true then
+
+			if cont % 2 ~= 0 then
+				myRectangle6 = false
+				circo6 = display.newCircle(270,display.contentHeight/2,40)
+				circo6:setFillColor(0)		
+				circo6:setStrokeColor(0,1,0)
+				circo6.strokeWidth = 8
+				cont = cont + 1
+			
+			elseif cont % 2 == 0 then
+				myRectangle6 = false
+				x6 = display.newLine(teste*2 + 7,outro,teste*3,outro*2)
+				x6.strokeWidth = 3
+				y6 = display.newLine(teste*2 + 5,outro*2,teste*3,outro)
+				y6.strokeWidth = 3
+				cont = cont + 1
+			end
+		end
 	end
-end
 end
 
 function toqueNaTela7(toque)	
 
-if toque.phase == "began" then
-	if cont % 2 ~= 0 then
-		circo7 = display.newCircle(106/2,390,40)
-		circo7:setFillColor(0)		
-		circo7:setStrokeColor(0,1,0)
-		circo7.strokeWidth = 8	
-		cont = cont + 1
+	if toque.phase == "began" then
 	
-	elseif cont % 2 == 0 then
-		x7 = display.newLine(0,outro*2 + 4,teste,outro*3)
-		x7.strokeWidth = 3
-		y7 = display.newLine(0,outro*3,teste,outro*2+4)
-		y7.strokeWidth = 3
-		cont = cont + 1
+		if myRectangle7 == true then
+	
+			if cont % 2 ~= 0 then
+				myRectangle7 = false
+				circo7 = display.newCircle(106/2,390,40)
+				circo7:setFillColor(0)		
+				circo7:setStrokeColor(0,1,0)
+				circo7.strokeWidth = 8	
+				cont = cont + 1
+			
+			elseif cont % 2 == 0 then
+				myRectangle7 = false
+				x7 = display.newLine(0,outro*2 + 4,teste,outro*3)
+				x7.strokeWidth = 3
+				y7 = display.newLine(0,outro*3,teste,outro*2+4)
+				y7.strokeWidth = 3
+				cont = cont + 1
+			end
+		end
 	end
-end
 end
 
 function toqueNaTela8(toque)	
 
-if toque.phase == "began" then
-	if cont % 2 ~= 0 then
-		circo8 = display.newCircle(display.contentWidth/2,390,40)
-		circo8:setFillColor(0)		
-		circo8:setStrokeColor(0,1,0)
-		circo8.strokeWidth = 8
-		cont = cont + 1
-	
-	elseif cont % 2 == 0 then
-		x8 = display.newLine(teste + 4,outro*2,teste*2,outro*3)
-		x8.strokeWidth = 3
-		y8 = display.newLine(teste + 5,outro * 3,teste*2,outro*2)
-		y8.strokeWidth = 3
-		cont = cont + 1
+	if toque.phase == "began" then
+
+		if myRectangle8 == true then
+
+			if cont % 2 ~= 0 then
+				myRectangle8 = true
+				circo8 = display.newCircle(display.contentWidth/2,390,40)
+				circo8:setFillColor(0)		
+				circo8:setStrokeColor(0,1,0)
+				circo8.strokeWidth = 8
+				cont = cont + 1
+			
+			elseif cont % 2 == 0 then
+				myRectangle8 = false
+				x8 = display.newLine(teste + 4,outro*2,teste*2,outro*3)
+				x8.strokeWidth = 3
+				y8 = display.newLine(teste + 5,outro * 3,teste*2,outro*2)
+				y8.strokeWidth = 3
+				cont = cont + 1
+			end
+		end
 	end
-end
 end
 
 function toqueNaTela9(toque)	
 
-if toque.phase == "began" then
-	if cont % 2 ~= 0 then
-		circo9 = display.newCircle(270,390,40)
-		circo9:setFillColor(0)		
-		circo9:setStrokeColor(0,1,0)
-		circo9.strokeWidth = 8
-		cont = cont + 1
+	if toque.phase == "began" then
 	
-	elseif cont % 2 == 0 then
-		x9 = display.newLine(teste*2 + 7,outro*2,teste*3,outro*3)
-		x9.strokeWidth = 3
-		y9 = display.newLine(teste*2 + 5,outro*3,teste*3,outro*2)
-		y9.strokeWidth = 3
-		cont = cont + 1
+		if myRectangle9 == true then
+	
+			if cont % 2 ~= 0 then
+				myRectangle9 = false
+				circo9 = display.newCircle(270,390,40)
+				circo9:setFillColor(0)		
+				circo9:setStrokeColor(0,1,0)
+				circo9.strokeWidth = 8
+				cont = cont + 1
+			
+			elseif cont % 2 == 0 then
+				myRectangle9 = false
+				x9 = display.newLine(teste*2 + 7,outro*2,teste*3,outro*3)
+				x9.strokeWidth = 3
+				y9 = display.newLine(teste*2 + 5,outro*3,teste*3,outro*2)
+				y9.strokeWidth = 3
+				cont = cont + 1
+			end
+		end
 	end
 end
-end
 
 
 
-contagem = 1
-if contagem == 1 then
 myRectangle:addEventListener("touch",toqueNaTela)
-elseif contagem ~= 1 then
-	print("ja tocou")
-end
+myRectangle = true
 myRectangle2:addEventListener("touch",toqueNaTela2)
+myRectangle2 = true
 myRectangle3:addEventListener("touch",toqueNaTela3)
+myRectangle3 = true
 myRectangle4:addEventListener("touch",toqueNaTela4)
+myRectangle4 = true
 myRectangle5:addEventListener("touch",toqueNaTela5)
+myRectangle5 = true
 myRectangle6:addEventListener("touch",toqueNaTela6)
+myRectangle6 = true
 myRectangle7:addEventListener("touch",toqueNaTela7)
+myRectangle7 = true
 myRectangle8:addEventListener("touch",toqueNaTela8)
+myRectangle8 = true
 myRectangle9:addEventListener("touch",toqueNaTela9)
-
+myRectangle9 = true
 
 
 function realizarJogada(linha,coluna)
