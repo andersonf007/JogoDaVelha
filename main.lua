@@ -89,224 +89,459 @@ myRectangle9:setStrokeColor( 1, 0, 0 )
 cont = 1
 teste = 104
 outro = 157
+contar = 0
+geral = 0
+--------------------------------------------------------------------------------------------
+
+function vencer()
+	tipoDejogador = ""
+	vencedor = false
+
+	--verificando as linhas =========================================================================
+	if verificacao1 == true and verificacao2 == true and verificacao3  == true then
+		tipoDejogador = "1"
+		vencedor = true
+
+	elseif verificacao11 == true and verificacao22 == true and verificacao33  == true then
+		tipoDejogador = "2"
+		vencedor = true
+
+	elseif verificacao4 == true and verificacao5 == true and verificacao6  == true then
+		tipoDejogador = "1"
+		vencedor = true
+
+	elseif verificacao44 == true and verificacao55 == true and verificacao66  == true then
+		tipoDejogador = "2"
+		vencedor = true
+
+	elseif verificacao7 == true and verificacao8 == true and verificacao9  == true then
+		tipoDejogador = "1"
+		vencedor = true
+
+	elseif verificacao77 == true and verificacao88 == true and verificacao99  == true then
+		tipoDejogador = "2"
+		vencedor = true
+
+	--verificando as diagonais =========================================================================
+	elseif verificacao1 == true and verificacao5 == true and verificacao9 == true then
+		tipoDejogador = "1"
+		vencedor = true
+
+	elseif  verificacao11 == true and verificacao55 == true and verificacao99 == true then
+		tipoDejogador = "2"
+		vencedor = true
+
+	elseif verificacao3 == true and verificacao5 == true and verificacao7 == true then
+		tipoDejogador = "1"
+		vencedor = true
+
+	elseif verificacao33 == true and verificacao55 == true and verificacao77 == true then
+		tipoDejogador = "2"
+		vencedor = true
+
+	-- verificando as colunas =========================================================================
+	elseif verificacao1 == true and verificacao4 == true and verificacao7 == true then
+		tipoDejogador = "1"
+		vencedor = true
+
+	elseif verificacao11 == true and verificacao44 == true and verificacao77 == true then
+		tipoDejogador = "2"
+		vencedor = true
+
+	elseif verificacao2 == true and verificacao5 == true and verificacao8 == true then
+		tipoDejogador = "1"
+		vencedor = true
+
+	elseif verificacao22 == true and verificacao55 == true and verificacao88 == true then
+		tipoDejogador = "2"
+		vencedor = true
+
+	elseif verificacao3 == true and verificacao6 == true and verificacao9 == true then
+		tipoDejogador = "1"
+		vencedor = true
+
+	elseif verificacao33 == true and verificacao66 == true and verificacao99 == true then
+		tipoDejogador = "2"
+		vencedor = true
+	end
+
+	if vencedor == true then
+		return vencedor
+	else
+		vencedor = false
+		return vencedor
+	end
+end
 --[[
-function jogoDaVelha:validacaoDaJogada(linha,coluna)
-	if linha <= 3 and coluna <= 3 then
-        if self.jogo[linha][coluna] ~= " o " and self.jogo[linha][coluna] ~= " x " then
-            return true        
-        end
-         if self.jogo[linha][coluna] == " o " or self.jogo[linha][coluna] == " x " then
-            print("o campo esta preenchido")
-            return false        
-        end
-    else
-        print("Jogada invalida!")
-        return false
-    end
-    return false
+function empate()
+	
+	--verificando as linhas =========================================================================
+	if verificacao1 ~= verificacao2 and verificacao2 ~= verificacao3  and  verificacao11 ~= verificacao22 and verificacao22 ~= verificacao33 then
+		contar = contar + 1
+	
+	elseif verificacao4 ~= verificacao5 and verificacao5 ~= verificacao6 and verificacao44 ~= verificacao55 and verificacao55 ~= verificacao66 then
+		contar = contar + 1
+
+	elseif verificacao7 ~= verificacao8 and verificacao8 ~= verificacao9 and verificacao77 ~= verificacao88 and verificacao88 ~= verificacao99 then
+		contar = contar + 1
+	
+	--verificando as diagonais =========================================================================
+	elseif verificacao1 ~= verificacao5 and verificacao5 ~= verificacao9 and  verificacao11 ~= verificacao55 and verificacao55 ~= verificacao99 then
+		contar = contar + 1
+
+	elseif verificacao3 ~= verificacao5 and verificacao5 ~= verificacao7 and verificacao33 ~= verificacao55 and verificacao55 ~= verificacao77 then
+		contar = contar + 1
+
+	-- verificando as colunas =========================================================================
+	elseif verificacao1 ~= verificacao4 and verificacao4 ~= verificacao7 and verificacao11 ~= verificacao44 and verificacao44 ~= verificacao77 then
+		contar = contar + 1
+
+	elseif verificacao2 ~= verificacao5 and verificacao5 ~= verificacao8 and verificacao22 ~= verificacao55 and verificacao55 ~= verificacao88 then
+		contar = contar + 1
+
+	elseif verificacao3 ~= verificacao6 and verificacao6 ~= verificacao9 and verificacao33 ~= verificacao66 and verificacao66 ~= verificacao99 then
+		contar = contar + 1
+	end
+	if contar == 9 then 
+		print("contador master")
+		return true
+	else 
+		print("nao deu empate")
+		return false
+	end	
 end
 ]]--
+--------------------------------------------------------------------------------------------
+
 function toqueNaTela(toque)	
+
+	if vencer() then
+		if tipoDejogador == "1" then
+		print("jogador 1 venceu")
+		elseif tipoDejogador == "2" then
+		print("jogador 2 venceu")
+		end
+	end
+	if geral == 9 and vencer() == false then
+		print("deu empate")
+	end
 
 	if toque.phase == "began" then
 
 		if myRectangle == true then
 
 			if cont % 2 ~= 0 then
-				myRectangle = false
+				verificacao1 = true -- verificacao para ajudar no metodo vencer
+				myRectangle = false -- verificacao para ajudar a evitar q cliquem duas vezes no mesmo campo
 				circo1 = display.newCircle(106/2,160/2,40)
 				circo1:setFillColor(0)		
 				circo1:setStrokeColor(0,1,0)
 				circo1.strokeWidth = 8
 				cont = cont + 1
+				geral = geral + 1
 			
 			elseif cont % 2 == 0 then
+				verificacao11 = true
 				myRectangle = false
 				x1 = display.newLine(0,0,teste,157)
 				x1.strokeWidth = 3
 				y1 = display.newLine(0,157,104,0)
 				y1.strokeWidth = 3
 				cont = cont + 1
+				geral = geral + 1
 			end
 		end
 	end
 end
 
 function toqueNaTela2(toque)	
+	
+	if vencer() then
+		if tipoDejogador == "1" then
+		print("jogador 1 venceu")
+		elseif tipoDejogador == "2" then
+		print("jogador 2 venceu")
+		end
+	end
+	if geral == 9 and vencer() == false then
+		print("deu empate")
+	end
 
 	if toque.phase == "began" then
 		
 		if myRectangle2 ==  true then	
 		
 			if cont % 2 ~= 0 then
+				verificacao2 = true
 				myRectangle2 = false
 				circo2 = display.newCircle(display.contentWidth/2,160/2,40)
 				circo2:setFillColor(0)		
 				circo2:setStrokeColor(0,1,0)
 				circo2.strokeWidth = 8
 				cont = cont + 1
+				geral = geral + 1
 			
 			elseif cont % 2 == 0 then
+				verificacao22 = true
 				myRectangle2 = false
 				x2 = display.newLine(teste + 4,0,teste*2,outro)
 				x2.strokeWidth = 3
 				y2 = display.newLine(teste + 5,outro,teste*2,0)
 				y2.strokeWidth = 3
 				cont = cont + 1
+				geral = geral + 1
 			end
 		end
 	end	
 end
 
 function toqueNaTela3(toque)	
+    
+	
+	if vencer() then
+		if tipoDejogador == "1" then
+		print("jogador 1 venceu")
+		elseif tipoDejogador == "2" then
+		print("jogador 2 venceu")
+		end
+	end
+	if geral == 9 and vencer() == false then
+		print("deu empate")
+	end
 
 	if toque.phase == "began" then
+		
 		if myRectangle3 == true then
+		
 			if cont % 2 ~= 0 then
+				verificacao3 = true
 				myRectangle3 = false
 				circo3 = display.newCircle(265,160/2,40)
 				circo3:setFillColor(0)		
 				circo3:setStrokeColor(0,1,0)
 				circo3.strokeWidth = 8
 				cont = cont + 1
+				geral = geral + 1
 			
 			elseif cont % 2 == 0 then
+				verificacao33 = true
 				myRectangle3 = false
 				x3 = display.newLine(teste*2 + 7,0,teste*3,outro)
 				x3.strokeWidth = 3
 				y3 = display.newLine(teste*2 + 5,outro,teste*3,0)
 				y3.strokeWidth = 3
 				cont = cont + 1
+				geral = geral + 1
 			end
 		end
 	end
 end
 
+--------------------------------------------------------------------------------------------
+
 function toqueNaTela4(toque)	
+	
+	
+	if vencer() then
+		if tipoDejogador == "1" then
+		print("jogador 1 venceu")
+		elseif tipoDejogador == "2" then
+		print("jogador 2 venceu")
+		end
+	end
+	if geral == 9 and vencer() == false then
+		print("deu empate")
+	end
 
 	if toque.phase == "began" then
 	
 		if myRectangle4 == true then
 	
 			if cont % 2 ~= 0 then
+				verificacao4 = true
 				myRectangle4 = false
 				circo4 = display.newCircle(106/2,display.contentHeight/2,40)
 				circo4:setFillColor(0)		
 				circo4:setStrokeColor(0,1,0)
 				circo4.strokeWidth = 8
 				cont = cont + 1
+				geral = geral + 1
 			
 			elseif cont % 2 == 0 then
+				verificacao44 = true
 				myRectangle4 = false
 				x4 = display.newLine(0,outro + 4,teste,outro*2)
 				x4.strokeWidth = 3
 				y4 = display.newLine(0,outro*2,teste,outro+4)
 				y4.strokeWidth = 3
 				cont = cont + 1
+				geral = geral + 1
 			end
 		end
 	end
 end
 
 function toqueNaTela5(toque)	
-
+	
+	if vencer() then
+		if tipoDejogador == "1" then
+		print("jogador 1 venceu")
+		elseif tipoDejogador == "2" then
+		print("jogador 2 venceu")
+		end
+	end
+	if geral == 9 and vencer() == false then
+		print("deu empate")
+	end
+	
 	if toque.phase == "began" then
 		
 		if myRectangle5 == true then
 		
 			if cont % 2 ~= 0 then
+				verificacao5 = true
 				myRectangle5 = false
 				circo5 = display.newCircle(display.contentWidth/2,display.contentHeight/2,40)
 				circo5:setFillColor(0)		
 				circo5:setStrokeColor(0,1,0)
 				circo5.strokeWidth = 8
 				cont = cont + 1
+				geral = geral + 1
 			
 			elseif cont % 2 == 0 then
+				verificacao55 = true
 				myRectangle5 = false
 				x5 = display.newLine(teste + 4,outro,teste*2,outro*2)
 				x5.strokeWidth = 3
 				y5 = display.newLine(teste + 5,outro*2,teste*2,outro+4)
 				y5.strokeWidth = 3
 				cont = cont + 1
+				geral = geral + 1
 			end
 		end
 	end	
 end
 
 function toqueNaTela6(toque)	
-
+	
+	if vencer() then
+		if tipoDejogador == "1" then
+		print("jogador 1 venceu")
+		elseif tipoDejogador == "2" then
+		print("jogador 2 venceu")
+		end
+	end
+	if geral == 9 and vencer() == false then
+		print("deu empate")
+	end
+	
 	if toque.phase == "began" then
 
 		if myRectangle6 == true then
 
 			if cont % 2 ~= 0 then
+				verificacao6 = true
 				myRectangle6 = false
 				circo6 = display.newCircle(270,display.contentHeight/2,40)
 				circo6:setFillColor(0)		
 				circo6:setStrokeColor(0,1,0)
 				circo6.strokeWidth = 8
 				cont = cont + 1
+				geral = geral + 1
 			
 			elseif cont % 2 == 0 then
+				verificacao66 = true
 				myRectangle6 = false
 				x6 = display.newLine(teste*2 + 7,outro,teste*3,outro*2)
 				x6.strokeWidth = 3
 				y6 = display.newLine(teste*2 + 5,outro*2,teste*3,outro)
 				y6.strokeWidth = 3
 				cont = cont + 1
+				geral = geral + 1
 			end
 		end
 	end
 end
 
-function toqueNaTela7(toque)	
+--------------------------------------------------------------------------------------------
 
+function toqueNaTela7(toque)	
+	
+	if vencer() then
+		if tipoDejogador == "1" then
+		print("jogador 1 venceu")
+		elseif tipoDejogador == "2" then
+		print("jogador 2 venceu")
+		end
+	end
+	if geral == 9 and vencer() == false then
+		print("deu empate")
+	end
+	
 	if toque.phase == "began" then
 	
 		if myRectangle7 == true then
 	
 			if cont % 2 ~= 0 then
+				verificacao7 = true
 				myRectangle7 = false
 				circo7 = display.newCircle(106/2,390,40)
 				circo7:setFillColor(0)		
 				circo7:setStrokeColor(0,1,0)
 				circo7.strokeWidth = 8	
 				cont = cont + 1
+				geral = geral + 1
 			
 			elseif cont % 2 == 0 then
-				myRectangle7 = false
+				verificacao77 = true
+				myRectangle77 = false
 				x7 = display.newLine(0,outro*2 + 4,teste,outro*3)
 				x7.strokeWidth = 3
 				y7 = display.newLine(0,outro*3,teste,outro*2+4)
 				y7.strokeWidth = 3
 				cont = cont + 1
+				geral = geral + 1
 			end
 		end
 	end
 end
 
 function toqueNaTela8(toque)	
+	
+	if vencer() then
+		if tipoDejogador == "1" then
+		print("jogador 1 venceu")
+		elseif tipoDejogador == "2" then
+		print("jogador 2 venceu")
+		end
+	end
+	if geral == 9 and vencer() == false then
+		print("deu empate")
+	end
 
 	if toque.phase == "began" then
 
 		if myRectangle8 == true then
 
 			if cont % 2 ~= 0 then
+				verificacao8 = true
 				myRectangle8 = true
 				circo8 = display.newCircle(display.contentWidth/2,390,40)
 				circo8:setFillColor(0)		
 				circo8:setStrokeColor(0,1,0)
 				circo8.strokeWidth = 8
 				cont = cont + 1
+				geral = geral + 1
 			
 			elseif cont % 2 == 0 then
+				verificacao88 = true
 				myRectangle8 = false
 				x8 = display.newLine(teste + 4,outro*2,teste*2,outro*3)
 				x8.strokeWidth = 3
 				y8 = display.newLine(teste + 5,outro * 3,teste*2,outro*2)
 				y8.strokeWidth = 3
 				cont = cont + 1
+				geral = geral + 1
 			end
 		end
 	end
@@ -314,31 +549,46 @@ end
 
 function toqueNaTela9(toque)	
 
+	if vencer() then
+		if tipoDejogador == "1" then
+		print("jogador 1 venceu")
+		elseif tipoDejogador == "2" then
+		print("jogador 2 venceu")
+		end
+	end
+	if geral == 9 and vencer() == false then
+		print("deu empate")
+	end
+
 	if toque.phase == "began" then
 	
 		if myRectangle9 == true then
 	
 			if cont % 2 ~= 0 then
+				verificacao9 = true
 				myRectangle9 = false
 				circo9 = display.newCircle(270,390,40)
 				circo9:setFillColor(0)		
 				circo9:setStrokeColor(0,1,0)
 				circo9.strokeWidth = 8
 				cont = cont + 1
+				geral = geral + 1
 			
 			elseif cont % 2 == 0 then
+				verificacao99 = true
 				myRectangle9 = false
 				x9 = display.newLine(teste*2 + 7,outro*2,teste*3,outro*3)
 				x9.strokeWidth = 3
 				y9 = display.newLine(teste*2 + 5,outro*3,teste*3,outro*2)
 				y9.strokeWidth = 3
 				cont = cont + 1
+				geral = geral + 1
 			end
 		end
 	end
 end
 
-
+--------------------------------------------------------------------------------------------
 
 myRectangle:addEventListener("touch",toqueNaTela)
 myRectangle = true
