@@ -11,6 +11,19 @@ display.setStatusBar( display.HiddenStatusBar )
 
 local widget =  require ("widget")
 
+-----------TESTE--------------------
+--[[
+l1 = display.newLine(230, 342, 305, 342)
+l2 = display.newLine(230, 342, 230, 442)
+l3 = display.newLine(305, 342, 305, 442)
+l4 = display.newLine( 230, 442,305, 442)
+
+
+				x17 = display.newLine(230, 342, 305, 442)
+				x18 = display.newLine(230, 442, 305, 342)
+]]
+
+----------TESTE---------------------
 --Criar Linhas
 primeiraLinhaHorizontal = display.newLine(0,display.contentHeight/3,display.contentWidth,display.contentHeight/3)
 segundaLinhaHorizontal = display.newLine(0,display.contentHeight*0.66,display.contentWidth,display.contentHeight*0.66)
@@ -243,10 +256,10 @@ function toqueNaTela(toque)
 			elseif cont % 2 == 0 then
 				verificacao11 = true
 				myRectangle = false
-				x1 = display.newLine(0,0,teste,157)
+				x1 = display.newLine(15, 25, 90, 125)
+				x2 = display.newLine(90, 25, 15, 125)
 				x1.strokeWidth = 3
-				y1 = display.newLine(0,157,104,0)
-				y1.strokeWidth = 3
+				x2.strokeWidth = 3
 				cont = cont + 1
 				geral = geral + 1
 			end
@@ -284,10 +297,11 @@ function toqueNaTela2(toque)
 			elseif cont % 2 == 0 then
 				verificacao22 = true
 				myRectangle2 = false
-				x2 = display.newLine(teste + 4,0,teste*2,outro)
-				x2.strokeWidth = 3
-				y2 = display.newLine(teste + 5,outro,teste*2,0)
-				y2.strokeWidth = 3
+
+				x3 = display.newLine(120, 25, 195, 125)
+				x4 = display.newLine(120, 125, 195, 25)
+				x3.strokeWidth = 3
+				x4.strokeWidth = 3
 				cont = cont + 1
 				geral = geral + 1
 			end
@@ -326,10 +340,11 @@ function toqueNaTela3(toque)
 			elseif cont % 2 == 0 then
 				verificacao33 = true
 				myRectangle3 = false
-				x3 = display.newLine(teste*2 + 7,0,teste*3,outro)
-				x3.strokeWidth = 3
-				y3 = display.newLine(teste*2 + 5,outro,teste*3,0)
-				y3.strokeWidth = 3
+
+				x5 = display.newLine(230, 25, 305, 125)
+				x6 = display.newLine(230, 125, 305, 25)
+				x5.strokeWidth = 3
+				x6.strokeWidth = 3
 				cont = cont + 1
 				geral = geral + 1
 			end
@@ -370,10 +385,11 @@ function toqueNaTela4(toque)
 			elseif cont % 2 == 0 then
 				verificacao44 = true
 				myRectangle4 = false
-				x4 = display.newLine(0,outro + 4,teste,outro*2)
-				x4.strokeWidth = 3
-				y4 = display.newLine(0,outro*2,teste,outro+4)
-				y4.strokeWidth = 3
+
+				x7 = display.newLine(15, 187, 90, 287)
+				x8 = display.newLine(15, 287, 90, 187)
+				x7.strokeWidth = 3
+				x8.strokeWidth = 3
 				cont = cont + 1
 				geral = geral + 1
 			end
@@ -411,10 +427,11 @@ function toqueNaTela5(toque)
 			elseif cont % 2 == 0 then
 				verificacao55 = true
 				myRectangle5 = false
-				x5 = display.newLine(teste + 4,outro,teste*2,outro*2)
-				x5.strokeWidth = 3
-				y5 = display.newLine(teste + 5,outro*2,teste*2,outro+4)
-				y5.strokeWidth = 3
+
+				x9 = display.newLine(120, 187, 195, 287)
+				x10 = display.newLine(120, 287, 195, 187)
+				x9.strokeWidth = 3
+				x10.strokeWidth = 3
 				cont = cont + 1
 				geral = geral + 1
 			end
@@ -452,10 +469,11 @@ function toqueNaTela6(toque)
 			elseif cont % 2 == 0 then
 				verificacao66 = true
 				myRectangle6 = false
-				x6 = display.newLine(teste*2 + 7,outro,teste*3,outro*2)
-				x6.strokeWidth = 3
-				y6 = display.newLine(teste*2 + 5,outro*2,teste*3,outro)
-				y6.strokeWidth = 3
+
+				x11 = display.newLine(230, 187, 305, 287)
+				x12 = display.newLine(230, 287, 305, 187)
+				x11.strokeWidth = 3
+				x12.strokeWidth = 3
 				cont = cont + 1
 				geral = geral + 1
 			end
@@ -495,10 +513,11 @@ function toqueNaTela7(toque)
 			elseif cont % 2 == 0 then
 				verificacao77 = true
 				myRectangle77 = false
-				x7 = display.newLine(0,outro*2 + 4,teste,outro*3)
-				x7.strokeWidth = 3
-				y7 = display.newLine(0,outro*3,teste,outro*2+4)
-				y7.strokeWidth = 3
+
+				x13 = display.newLine(15, 342, 90, 442)
+				x14 = display.newLine(15, 442, 90, 342)
+				x13.strokeWidth = 3
+				x14.strokeWidth = 3
 				cont = cont + 1
 				geral = geral + 1
 			end
@@ -536,10 +555,11 @@ function toqueNaTela8(toque)
 			elseif cont % 2 == 0 then
 				verificacao88 = true
 				myRectangle8 = false
-				x8 = display.newLine(teste + 4,outro*2,teste*2,outro*3)
-				x8.strokeWidth = 3
-				y8 = display.newLine(teste + 5,outro * 3,teste*2,outro*2)
-				y8.strokeWidth = 3
+
+				x15 = display.newLine(120, 342, 195, 442)
+				x16 = display.newLine(120, 442, 195, 342)
+				x15.strokeWidth = 3
+				x16.strokeWidth = 3
 				cont = cont + 1
 				geral = geral + 1
 			end
@@ -577,10 +597,11 @@ function toqueNaTela9(toque)
 			elseif cont % 2 == 0 then
 				verificacao99 = true
 				myRectangle9 = false
-				x9 = display.newLine(teste*2 + 7,outro*2,teste*3,outro*3)
-				x9.strokeWidth = 3
-				y9 = display.newLine(teste*2 + 5,outro*3,teste*3,outro*2)
-				y9.strokeWidth = 3
+
+				x17 = display.newLine(230, 342, 305, 442)
+				x18 = display.newLine(230, 442, 305, 342)
+				x17.strokeWidth = 3
+				x18.strokeWidth = 3
 				cont = cont + 1
 				geral = geral + 1
 			end
