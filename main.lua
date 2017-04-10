@@ -12,83 +12,92 @@ display.setStatusBar( display.HiddenStatusBar )
 local widget =  require ("widget")
 
 
---Criar Linhas
-primeiraLinhaHorizontal = display.newLine(0,display.contentHeight/3,display.contentWidth,display.contentHeight/3)
-segundaLinhaHorizontal = display.newLine(0,display.contentHeight*0.66,display.contentWidth,display.contentHeight*0.66)
-primeiraLinhaVertical = display.newLine(display.contentWidth/3,0,display.contentWidth/3,display.contentHeight)
-segundaLinhaVertical = display.newLine(display.contentWidth*0.66,0,display.contentWidth*0.66,display.contentHeight)
+function criarTabela()
+	--Criar Linhas
+	primeiraLinhaHorizontal = display.newLine(0,display.contentHeight/3,display.contentWidth,display.contentHeight/3)
+	segundaLinhaHorizontal = display.newLine(0,display.contentHeight*0.66,display.contentWidth,display.contentHeight*0.66)
+	primeiraLinhaVertical = display.newLine(display.contentWidth/3,0,display.contentWidth/3,display.contentHeight)
+	segundaLinhaVertical = display.newLine(display.contentWidth*0.66,0,display.contentWidth*0.66,display.contentHeight)
 
--- altera a grossura da linha
-primeiraLinhaHorizontal.strokeWidth = 5 
-segundaLinhaHorizontal.strokeWidth = 5
-primeiraLinhaVertical.strokeWidth = 5
-segundaLinhaVertical.strokeWidth = 5
+	-- altera a grossura da linha
+	primeiraLinhaHorizontal.strokeWidth = 5 
+	segundaLinhaHorizontal.strokeWidth = 5
+	primeiraLinhaVertical.strokeWidth = 5
+	segundaLinhaVertical.strokeWidth = 5
+end
+
+function criarRetangulosDosBotoes()
+	------------------------------------------------------------------
+	--cria os retangulos invisiveis para servirem como botoes
+	------------------------------------------------------------------
+	myRectangle = display.newRect( 0, 0, 104, 157)
+	myRectangle.anchorX = 0
+	myRectangle.anchorY = 0
+	--myRectangle.strokeWidth = 3
+	myRectangle:setFillColor( 0,0,0,0.1 )
+	myRectangle:setStrokeColor( 1, 0, 0 )
+
+	myRectangle2 = display.newRect( 109, 0, 100, 157)
+	myRectangle2.anchorX = 0
+	myRectangle2.anchorY = 0
+	--myRectangle.strokeWidth = 3
+	myRectangle2:setFillColor( 0,0,0,0.1 )
+	myRectangle2:setStrokeColor( 1, 0, 0 )
+
+	myRectangle3 = display.newRect( 214, 0, 106, 157)
+	myRectangle3.anchorX = 0
+	myRectangle3.anchorY = 0
+	--myRectangle.strokeWidth = 3
+	myRectangle3:setFillColor( 0,0,0,0.1 )
+	myRectangle3:setStrokeColor( 1, 0, 0 )
+	-------------------------------------------------------------------
+	myRectangle4 = display.newRect( 0, 162, 104, 152)
+	myRectangle4.anchorX = 0
+	myRectangle4.anchorY = 0
+	--myRectangle.strokeWidth = 3
+	myRectangle4:setFillColor( 0,0,0,0.1 )
+	myRectangle4:setStrokeColor( 1, 0, 0 )
+
+	myRectangle5 = display.newRect( 109, 162, 100, 152)
+	myRectangle5.anchorX = 0
+	myRectangle5.anchorY = 0
+	--myRectangle.strokeWidth = 3
+	myRectangle5:setFillColor( 0,0,0,0.1 )
+	myRectangle5:setStrokeColor( 1, 0, 0 )
+
+	myRectangle6 = display.newRect( 214, 162, 106, 152)
+	myRectangle6.anchorX = 0
+	myRectangle6.anchorY = 0
+	--myRectangle.strokeWidth = 3
+	myRectangle6:setFillColor( 0,0,0,0.1 )
+	myRectangle6:setStrokeColor( 1, 0, 0 )
+	-------------------------------------------------------------------
+	myRectangle7 = display.newRect( 0, 319, 104, 161)
+	myRectangle7.anchorX = 0
+	myRectangle7.anchorY = 0
+	--myRectangle.strokeWidth = 3
+	myRectangle7:setFillColor( 0,0,0,0.1)
+	myRectangle7:setStrokeColor( 1, 0, 0 )
+
+	myRectangle8 = display.newRect( 109, 319, 100, 161)
+	myRectangle8.anchorX = 0
+	myRectangle8.anchorY = 0
+	--myRectangle.strokeWidth = 3
+	myRectangle8:setFillColor( 0,0,0,0.1 )
+	myRectangle8:setStrokeColor( 1, 0, 0 )
+
+	myRectangle9 = display.newRect( 214, 319, 106, 161)
+	myRectangle9.anchorX = 0
+	myRectangle9.anchorY = 0
+	--myRectangle.strokeWidth = 3
+	myRectangle9:setFillColor( 0,0,0,0.1 )
+	myRectangle9:setStrokeColor( 1, 0, 0 )
+end
 ------------------------------------------------------------------
---cria os retangulos invisiveis para servirem como botoes
-------------------------------------------------------------------
-myRectangle = display.newRect( 0, 0, 104, 157)
-myRectangle.anchorX = 0
-myRectangle.anchorY = 0
---myRectangle.strokeWidth = 3
-myRectangle:setFillColor( 0,0,0,0.1 )
-myRectangle:setStrokeColor( 1, 0, 0 )
 
-myRectangle2 = display.newRect( 109, 0, 100, 157)
-myRectangle2.anchorX = 0
-myRectangle2.anchorY = 0
---myRectangle.strokeWidth = 3
-myRectangle2:setFillColor( 0,0,0,0.1 )
-myRectangle2:setStrokeColor( 1, 0, 0 )
+criarTabela()
+criarRetangulosDosBotoes()
 
-myRectangle3 = display.newRect( 214, 0, 106, 157)
-myRectangle3.anchorX = 0
-myRectangle3.anchorY = 0
---myRectangle.strokeWidth = 3
-myRectangle3:setFillColor( 0,0,0,0.1 )
-myRectangle3:setStrokeColor( 1, 0, 0 )
--------------------------------------------------------------------
-myRectangle4 = display.newRect( 0, 162, 104, 152)
-myRectangle4.anchorX = 0
-myRectangle4.anchorY = 0
---myRectangle.strokeWidth = 3
-myRectangle4:setFillColor( 0,0,0,0.1 )
-myRectangle4:setStrokeColor( 1, 0, 0 )
-
-myRectangle5 = display.newRect( 109, 162, 100, 152)
-myRectangle5.anchorX = 0
-myRectangle5.anchorY = 0
---myRectangle.strokeWidth = 3
-myRectangle5:setFillColor( 0,0,0,0.1 )
-myRectangle5:setStrokeColor( 1, 0, 0 )
-
-myRectangle6 = display.newRect( 214, 162, 106, 152)
-myRectangle6.anchorX = 0
-myRectangle6.anchorY = 0
---myRectangle.strokeWidth = 3
-myRectangle6:setFillColor( 0,0,0,0.1 )
-myRectangle6:setStrokeColor( 1, 0, 0 )
--------------------------------------------------------------------
-myRectangle7 = display.newRect( 0, 319, 104, 161)
-myRectangle7.anchorX = 0
-myRectangle7.anchorY = 0
---myRectangle.strokeWidth = 3
-myRectangle7:setFillColor( 0,0,0,0.1)
-myRectangle7:setStrokeColor( 1, 0, 0 )
-
-myRectangle8 = display.newRect( 109, 319, 100, 161)
-myRectangle8.anchorX = 0
-myRectangle8.anchorY = 0
---myRectangle.strokeWidth = 3
-myRectangle8:setFillColor( 0,0,0,0.1 )
-myRectangle8:setStrokeColor( 1, 0, 0 )
-
-myRectangle9 = display.newRect( 214, 319, 106, 161)
-myRectangle9.anchorX = 0
-myRectangle9.anchorY = 0
---myRectangle.strokeWidth = 3
-myRectangle9:setFillColor( 0,0,0,0.1 )
-myRectangle9:setStrokeColor( 1, 0, 0 )
-------------------------------------------------------------------
 cont = 1
 teste = 104
 outro = 157
