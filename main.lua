@@ -11,7 +11,7 @@ display.setStatusBar( display.HiddenStatusBar )
 
 local widget =  require ("widget")
 
------------TESTE--------------------
+-----------TESTE PARA FAZER O X--------------------
 --[[
 l1 = display.newLine(230, 342, 305, 342)
 l2 = display.newLine(230, 342, 230, 442)
@@ -23,7 +23,7 @@ l4 = display.newLine( 230, 442,305, 442)
 				x18 = display.newLine(230, 442, 305, 342)
 ]]
 
-----------TESTE---------------------
+----------TESTE PARA FAZER O X---------------------
 --Criar Linhas
 primeiraLinhaHorizontal = display.newLine(0,display.contentHeight/3,display.contentWidth,display.contentHeight/3)
 segundaLinhaHorizontal = display.newLine(0,display.contentHeight*0.66,display.contentWidth,display.contentHeight*0.66)
@@ -36,6 +36,7 @@ segundaLinhaHorizontal.strokeWidth = 5
 primeiraLinhaVertical.strokeWidth = 5
 segundaLinhaVertical.strokeWidth = 5
 ------------------------------------------------------------------
+--cria os retangulos invisiveis para servirem como botoes
 myRectangle = display.newRect( 0, 0, 104, 157)
 myRectangle.anchorX = 0
 myRectangle.anchorY = 0
