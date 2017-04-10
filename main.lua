@@ -1,5 +1,5 @@
 display.setStatusBar( display.HiddenStatusBar )
---meuTesto = display.newText({text="hello word",x=100,y=100})
+--meuTexto = display.newText({text="hello word",x=100,y=100})
 
 --meuTesto:setFillColor(0,1,0)
 --alterar a cor
@@ -11,19 +11,7 @@ display.setStatusBar( display.HiddenStatusBar )
 
 local widget =  require ("widget")
 
------------TESTE PARA FAZER O X--------------------
---[[
-l1 = display.newLine(230, 342, 305, 342)
-l2 = display.newLine(230, 342, 230, 442)
-l3 = display.newLine(305, 342, 305, 442)
-l4 = display.newLine( 230, 442,305, 442)
 
-
-				x17 = display.newLine(230, 342, 305, 442)
-				x18 = display.newLine(230, 442, 305, 342)
-]]
-
-----------TESTE PARA FAZER O X---------------------
 --Criar Linhas
 primeiraLinhaHorizontal = display.newLine(0,display.contentHeight/3,display.contentWidth,display.contentHeight/3)
 segundaLinhaHorizontal = display.newLine(0,display.contentHeight*0.66,display.contentWidth,display.contentHeight*0.66)
@@ -37,6 +25,7 @@ primeiraLinhaVertical.strokeWidth = 5
 segundaLinhaVertical.strokeWidth = 5
 ------------------------------------------------------------------
 --cria os retangulos invisiveis para servirem como botoes
+------------------------------------------------------------------
 myRectangle = display.newRect( 0, 0, 104, 157)
 myRectangle.anchorX = 0
 myRectangle.anchorY = 0
@@ -186,57 +175,21 @@ function vencer()
 		return vencedor
 	end
 end
---[[
-function empate()
-	
-	--verificando as linhas =========================================================================
-	if verificacao1 ~= verificacao2 and verificacao2 ~= verificacao3  and  verificacao11 ~= verificacao22 and verificacao22 ~= verificacao33 then
-		contar = contar + 1
-	
-	elseif verificacao4 ~= verificacao5 and verificacao5 ~= verificacao6 and verificacao44 ~= verificacao55 and verificacao55 ~= verificacao66 then
-		contar = contar + 1
-
-	elseif verificacao7 ~= verificacao8 and verificacao8 ~= verificacao9 and verificacao77 ~= verificacao88 and verificacao88 ~= verificacao99 then
-		contar = contar + 1
-	
-	--verificando as diagonais =========================================================================
-	elseif verificacao1 ~= verificacao5 and verificacao5 ~= verificacao9 and  verificacao11 ~= verificacao55 and verificacao55 ~= verificacao99 then
-		contar = contar + 1
-
-	elseif verificacao3 ~= verificacao5 and verificacao5 ~= verificacao7 and verificacao33 ~= verificacao55 and verificacao55 ~= verificacao77 then
-		contar = contar + 1
-
-	-- verificando as colunas =========================================================================
-	elseif verificacao1 ~= verificacao4 and verificacao4 ~= verificacao7 and verificacao11 ~= verificacao44 and verificacao44 ~= verificacao77 then
-		contar = contar + 1
-
-	elseif verificacao2 ~= verificacao5 and verificacao5 ~= verificacao8 and verificacao22 ~= verificacao55 and verificacao55 ~= verificacao88 then
-		contar = contar + 1
-
-	elseif verificacao3 ~= verificacao6 and verificacao6 ~= verificacao9 and verificacao33 ~= verificacao66 and verificacao66 ~= verificacao99 then
-		contar = contar + 1
-	end
-	if contar == 9 then 
-		print("contador master")
-		return true
-	else 
-		print("nao deu empate")
-		return false
-	end	
-end
-]]--
 --------------------------------------------------------------------------------------------
 
 function toqueNaTela(toque)	
 
 	if vencer() then
 		if tipoDejogador == "1" then
+			alert = native.showAlert("vencedor","jogador 1 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 1 venceu")
 		elseif tipoDejogador == "2" then
+			alert = native.showAlert("vencedor","jogador 2 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 2 venceu")
 		end
 	end
 	if geral == 9 and vencer() == false then
+		alert = native.showAlert("Game Over","empatou", {"ok", "cancelar"}, onComplete )
 		print("deu empate")
 	end
 
@@ -272,12 +225,15 @@ function toqueNaTela2(toque)
 	
 	if vencer() then
 		if tipoDejogador == "1" then
+			alert = native.showAlert("vencedor","jogador 1 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 1 venceu")
 		elseif tipoDejogador == "2" then
+			alert = native.showAlert("vencedor","jogador 2 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 2 venceu")
 		end
 	end
 	if geral == 9 and vencer() == false then
+		alert = native.showAlert("Game Over","empatou", {"ok", "cancelar"}, onComplete )
 		print("deu empate")
 	end
 
@@ -315,12 +271,15 @@ function toqueNaTela3(toque)
 	
 	if vencer() then
 		if tipoDejogador == "1" then
+			alert = native.showAlert("vencedor","jogador 1 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 1 venceu")
 		elseif tipoDejogador == "2" then
+			alert = native.showAlert("vencedor","jogador 2 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 2 venceu")
 		end
 	end
 	if geral == 9 and vencer() == false then
+		alert = native.showAlert("Game Over","empatou", {"ok", "cancelar"}, onComplete )
 		print("deu empate")
 	end
 
@@ -360,12 +319,15 @@ function toqueNaTela4(toque)
 	
 	if vencer() then
 		if tipoDejogador == "1" then
+			alert = native.showAlert("vencedor","jogador 1 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 1 venceu")
 		elseif tipoDejogador == "2" then
+			alert = native.showAlert("vencedor","jogador 1 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 2 venceu")
 		end
 	end
 	if geral == 9 and vencer() == false then
+		alert = native.showAlert("Game Over","empatou", {"ok", "cancelar"}, onComplete )
 		print("deu empate")
 	end
 
@@ -402,12 +364,15 @@ function toqueNaTela5(toque)
 	
 	if vencer() then
 		if tipoDejogador == "1" then
+			alert = native.showAlert("vencedor","jogador 1 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 1 venceu")
 		elseif tipoDejogador == "2" then
+			alert = native.showAlert("vencedor","jogador 1 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 2 venceu")
 		end
 	end
 	if geral == 9 and vencer() == false then
+		alert = native.showAlert("Game Over","empatou", {"ok", "cancelar"}, onComplete )
 		print("deu empate")
 	end
 	
@@ -444,12 +409,15 @@ function toqueNaTela6(toque)
 	
 	if vencer() then
 		if tipoDejogador == "1" then
+			alert = native.showAlert("vencedor","jogador 1 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 1 venceu")
 		elseif tipoDejogador == "2" then
+			alert = native.showAlert("vencedor","jogador 2 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 2 venceu")
 		end
 	end
 	if geral == 9 and vencer() == false then
+		alert = native.showAlert("Game Over","empatou", {"ok", "cancelar"}, onComplete )
 		print("deu empate")
 	end
 	
@@ -488,12 +456,15 @@ function toqueNaTela7(toque)
 	
 	if vencer() then
 		if tipoDejogador == "1" then
+			alert = native.showAlert("vencedor","jogador 1 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 1 venceu")
 		elseif tipoDejogador == "2" then
+			alert = native.showAlert("vencedor","jogador 2 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 2 venceu")
 		end
 	end
 	if geral == 9 and vencer() == false then
+		alert = native.showAlert("Game Over","empatou", {"ok", "cancelar"}, onComplete )
 		print("deu empate")
 	end
 	
@@ -514,7 +485,6 @@ function toqueNaTela7(toque)
 			elseif cont % 2 == 0 then
 				verificacao77 = true
 				myRectangle77 = false
-
 				x13 = display.newLine(15, 342, 90, 442)
 				x14 = display.newLine(15, 442, 90, 342)
 				x13.strokeWidth = 3
@@ -530,12 +500,15 @@ function toqueNaTela8(toque)
 	
 	if vencer() then
 		if tipoDejogador == "1" then
+			alert = native.showAlert("vencedor","jogador 1 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 1 venceu")
 		elseif tipoDejogador == "2" then
+			alert = native.showAlert("vencedor","jogador 2 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 2 venceu")
 		end
 	end
 	if geral == 9 and vencer() == false then
+		alert = native.showAlert("Game Over","empatou", {"ok", "cancelar"}, onComplete )
 		print("deu empate")
 	end
 
@@ -572,12 +545,15 @@ function toqueNaTela9(toque)
 
 	if vencer() then
 		if tipoDejogador == "1" then
+			alert = native.showAlert("vencedor","jogador 1 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 1 venceu")
 		elseif tipoDejogador == "2" then
+			alert = native.showAlert("vencedor","jogador 2 venceu", {"ok", "cancelar"}, onComplete )
 		print("jogador 2 venceu")
 		end
 	end
 	if geral == 9 and vencer() == false then
+		alert = native.showAlert("Game Over","empatou", {"ok", "cancelar"}, onComplete )
 		print("deu empate")
 	end
 
@@ -631,144 +607,79 @@ myRectangle8 = true
 myRectangle9:addEventListener("touch",toqueNaTela9)
 myRectangle9 = true
 
+function onComplete(event)
+	print("entrou 1")
+	if "clicked" == event.action then
+		print("entrou 2")
+		local i = event.index
+		if i == 1 then
+			display.remove( circo1 )
+			display.remove( circo2 )
+			display.remove( circo3 )
+			display.remove( circo4 )
+			display.remove( circo5 )
+			display.remove( circo6 )
+			display.remove( circo7 )
+			display.remove( circo8 )
+			display.remove( circo9 )
 
-function realizarJogada(linha,coluna)
+			display.remove( x1)
+			display.remove( x2 )
+			display.remove( x3 )
+			display.remove( x4 )
+			display.remove( x5 )
+			display.remove( x6 )
+			display.remove( x7 )
+			display.remove( x8 )
+			display.remove( x9 )
+			display.remove( x10 )
+			display.remove( x11 )
+			display.remove( x12 )
+			display.remove( x13 )
+			display.remove( x14 )
+			display.remove( x15 )
+			display.remove( x16 )
+			display.remove( x17 )
+			display.remove( x18 )
+			
+			myRectangle = true
+			myRectangle2 = true
+			myRectangle3 = true
+			myRectangle4 = true
+			myRectangle5 = true
+			myRectangle6 = true
+			myRectangle7 = true
+			myRectangle8 = true
+			myRectangle9 = true
 
-	if linha == 1 and coluna == 1 then
-		circo1 = display.newCircle(106/2,160/2,40)
-		circo1:setFillColor(0)		
-		circo1:setStrokeColor(0,1,0)
-		circo1.strokeWidth = 8
-	end
-	if linha == 1 and coluna == 2 then
-		circo2 = display.newCircle(display.contentWidth/2,160/2,40)
-		circo2:setFillColor(0)		
-		circo2:setStrokeColor(0,1,0)
-		circo2.strokeWidth = 8
-	end
-	if linha == 1 and coluna == 3 then
-		circo3 = display.newCircle(265,160/2,40)
-		circo3:setFillColor(0)		
-		circo3:setStrokeColor(0,1,0)
-		circo3.strokeWidth = 8
-	end
+			verificacao1 = false
+			verificacao11 = false
+			verificacao2 = false
+			verificacao22 = false
+			verificacao3 = false
+			verificacao33 = false
+			verificacao4 = false
+			verificacao44 = false
+			verificacao5 = false
+			verificacao55 = false
+			verificacao6 = false
+			verificacao66 = false
+			verificacao7 = false
+			verificacao77 = false
+			verificacao8 = false
+			verificacao88 = false
+			verificacao9 = false
+			verificacao99 = false
 
-	if linha == 2 and coluna == 1 then
-		circo4 = display.newCircle(106/2,display.contentHeight/2,40)
-		circo4:setFillColor(0)		
-		circo4:setStrokeColor(0,1,0)
-		circo4.strokeWidth = 8
-	end
-	if linha == 2 and coluna == 2 then
-		circo5 = display.newCircle(display.contentWidth/2,display.contentHeight/2,40)
-		circo5:setFillColor(0)		
-		circo5:setStrokeColor(0,1,0)
-		circo5.strokeWidth = 8
-	end
-	if linha == 2 and coluna == 3 then
-		circo6 = display.newCircle(270,display.contentHeight/2,40)
-		circo6:setFillColor(0)		
-		circo6:setStrokeColor(0,1,0)
-		circo6.strokeWidth = 8
-	end
+			cont = 1
+			teste = 104
+			outro = 157
+			contar = 0
+			geral = 0
 
-	if linha == 3 and coluna == 1 then
-		circo7 = display.newCircle(106/2,390,40)
-		circo7:setFillColor(0)		
-		circo7:setStrokeColor(0,1,0)
-		circo7.strokeWidth = 8		
+			print("entrou 3")
+	elseif i == 2 then
+		print("sai daki NUB!!! vai aprender a jogar!")
+		end
 	end
-	if linha == 3 and coluna == 2 then
-		circo8 = display.newCircle(display.contentWidth/2,390,40)
-		circo8:setFillColor(0)		
-		circo8:setStrokeColor(0,1,0)
-		circo8.strokeWidth = 8
-	end
-	if linha == 3 and coluna == 3 then
-		circo9 = display.newCircle(270,390,40)
-		circo9:setFillColor(0)		
-		circo9:setStrokeColor(0,1,0)
-		circo9.strokeWidth = 8
-	end	
 end
-
-
---[[
-teste = 104
-outro = 157
-x1 = display.newLine(0,0,teste,157)
-x1.strokeWidth = 3
-y1 = display.newLine(0,157,104,0)
-y1.strokeWidth = 3
-
-x2 = display.newLine(teste + 4,0,teste*2,outro)
-x2.strokeWidth = 3
-y2 = display.newLine(teste + 5,outro,teste*2,0)
-y2.strokeWidth = 3
-
-x3 = display.newLine(teste*2 + 7,0,teste*3,outro)
-x3.strokeWidth = 3
-y3 = display.newLine(teste*2 + 5,outro,teste*3,0)
-y3.strokeWidth = 3
-
-x4 = display.newLine(0,outro + 4,teste,outro*2)
-x4.strokeWidth = 3
-y4 = display.newLine(0,outro*2,teste,outro+4)
-y4.strokeWidth = 3
-
-x5 = display.newLine(teste + 4,outro,teste*2,outro*2)
-x5.strokeWidth = 3
-y5 = display.newLine(teste + 5,outro*2,teste*2,outro+4)
-y5.strokeWidth = 3
-
-x6 = display.newLine(teste*2 + 7,outro,teste*3,outro*2)
-x6.strokeWidth = 3
-y6 = display.newLine(teste*2 + 5,outro*2,teste*3,outro)
-y6.strokeWidth = 3
-
-x7 = display.newLine(0,outro*2 + 4,teste,outro*3)
-x7.strokeWidth = 3
-y7 = display.newLine(0,outro*3,teste,outro*2+4)
-y7.strokeWidth = 3
-
-x8 = display.newLine(teste + 4,outro*2,teste*2,outro*3)
-x8.strokeWidth = 3
-y8 = display.newLine(teste + 5,outro * 3,teste*2,outro*2)
-y8.strokeWidth = 3
-
-x9 = display.newLine(teste*2 + 7,outro*2,teste*3,outro*3)
-x9.strokeWidth = 3
-y9 = display.newLine(teste*2 + 5,outro*3,teste*3,outro*2)
-y9.strokeWidth = 3
-
-]]--
-
-
-
-
-
-
-
-
---[[
-realizarJogada(1,1)
-realizarJogada(1,2)
-realizarJogada(1,3)
-
-realizarJogada(2,1)
-realizarJogada(2,2)
-realizarJogada(2,3)
-
-realizarJogada(3,1)
-realizarJogada(3,2)
-realizarJogada(3,3)
---]]
-
-
-
-print(display.contentWidth)
-print(display.contentHeight)
-
-
-
-
